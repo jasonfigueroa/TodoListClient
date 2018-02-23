@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Category | {{ category_name }}{% endblock %}
+
+{% block page_content %}
+	<h1>Tasks</h1>
+	<ul>
+	{% for category_task in category_tasks %}
+		<li>{{ category_task.title }}</li>
+	{% endfor %}
+	</ul>
+{% endblock %}
