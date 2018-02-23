@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}My App{% endblock %}
+
+{% block page_content %}
+	<h1>Tasks</h1>
+	<ul>
+	{% for task in tasks %}
+		<li>{{ task.title }}</li>
+	{% endfor %}
+	</ul>
+{% endblock %}
