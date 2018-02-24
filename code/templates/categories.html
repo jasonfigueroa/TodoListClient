@@ -5,8 +5,10 @@
 {% block page_content %}
 	<h1>Categories</h1>
 	<ul>
-	{% for category in categories %}
-		<li><a href="{{ url_for('category', _id=category.id) }}">{{ category.name }}</a></li>
-	{% endfor %}
+		{% for category in categories %}
+		<li>	
+			<a href="{{ url_for('category', _id=category.id) }}" class="list-group-item list-group-item-action">{{ category.name }}</a>
+		</li>
+		{% endfor %}
 	</ul>
 {% endblock %}
