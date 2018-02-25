@@ -3,13 +3,18 @@
 {% block title %}Category | {{ category_name }}{% endblock %}
 
 {% block page_content %}
-	<h1>Tasks</h1>
+	<h1>{{ category_name }}</h1>
 	<ul class="list-style-none">
 		{% for category_task in category_tasks %}
 			<li id="{{ category_task.id }}">
 				<span class="glyphicon glyphicon-trash cursor-pointer delete-task" aria-hidden="true"></span>
-				<span class="pad-left-10  cursor-pointer task">{{ category_task.title }}</span>
+				{% if category_task.complete %}
+					<span class="pad-left-10  cursor-pointer task line-through">{{ category_task.title }}</span>
+				{% else %}
+					<span class="pad-left-10  cursor-pointer task">{{ category_task.title }}</span>
+				{% endif %}
 			</li>
 		{% endfor %}
 	</ul>
+	<button class="btn btn-default">Add</button>
 {% endblock %}
