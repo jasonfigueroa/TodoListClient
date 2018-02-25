@@ -16,5 +16,18 @@
 			</li>
 		{% endfor %}
 	</ul>
-	<button class="btn btn-default">Add</button>
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		{{ form.task.label }} {{ form.task(size=16) }}
+		{% for error in form.task.errors %}
+			{{ error }}
+		{% endfor %}
+		<br>
+		{{ form.category.label }} {{ form.category(size=16) }}
+		{% for error in form.category.errors %}
+			{{ error }}
+		{% endfor %}
+		<br>
+		{{ form.submit() }}
+	</form>
 {% endblock %}
