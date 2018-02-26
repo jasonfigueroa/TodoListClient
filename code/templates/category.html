@@ -16,18 +16,26 @@
 			</li>
 		{% endfor %}
 	</ul>
-	<form method="POST" action="">
+	<button id="add-task-button" class="btn btn-default">Add Task</button>
+	<form id="add-task-form" class="form-group row hidden" method="POST" action="">
 		{{ form.hidden_tag() }}
-		{{ form.task.label }} {{ form.task(size=16) }}
+		<div class="col-md-4 unset">
+			{{ form.task.label }} 
+			{{ form.task(class="form-control") }}
+		</div>
 		{% for error in form.task.errors %}
 			{{ error }}
 		{% endfor %}
 		<br>
-		{{ form.category.label }} {{ form.category(size=16) }}
+		<div class="col-md-4 unset">
+			{{ form.category.label }} 
+			{{ form.category(class="form-control") }}
+		</div>
 		{% for error in form.category.errors %}
 			{{ error }}
 		{% endfor %}
 		<br>
-		{{ form.submit() }}
+		{{ form.submit(class="btn btn-default") }}
+		<button id="cancel-add-task-button" class="btn btn-default">Cancel</button>
 	</form>
 {% endblock %}

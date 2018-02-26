@@ -4,11 +4,26 @@
 
 {% block page_content %}
 	<h1>Categories</h1>
-	<ul>
+	<ul class="list-style-none">
 		{% for category in categories %}
-		<li>	
-			<a href="{{ url_for('category', _id=category.id) }}" class="list-group-item list-group-item-action">{{ category.name }}</a>
+		<li id="{{ category.id }}">	
+			<span class="glyphicon glyphicon-trash cursor-pointer delete-category" aria-hidden="true"></span>
+			<a href="{{ url_for('category', _id=category.id) }}" class="pad-left-10">{{ category.name }}</a>
 		</li>
 		{% endfor %}
 	</ul>
+	<button id="add-category-button" class="btn btn-default">Add Category</button>
+	<form id="add-category-form" class="form-group row hidden" method="POST" action="">
+		{{ form.hidden_tag() }}
+		<div class="col-md-4 unset">
+			{{ form.category.label }} 
+			{{ form.category(class="form-control") }}
+		</div>
+		{% for error in form.category.errors %}
+			{{ error }}
+		{% endfor %}
+		<br>
+		{{ form.submit(class="btn btn-default") }}
+		<button id="cancel-add-category-button" class="btn btn-default">Cancel</button>
+	</form>
 {% endblock %}

@@ -18,3 +18,12 @@ body {
 .line-through {
 	text-decoration: line-through;
 }
+
+.unset {
+	float: unset;
+}
+
+.hidden {
+	display: none !important;
+	visibility: hidden !important;
+  }
